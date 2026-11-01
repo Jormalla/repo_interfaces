@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = 'repo_interfaces'
-include('app', 'tema2_componentesjavafx_controlesBasicos')
+include('app', 'tema2_componentesjavafx_controlesBasicos_ej1')
