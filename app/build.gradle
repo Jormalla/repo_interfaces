@@ -41,6 +41,9 @@ javafx {
 application {
     // Define the main class for the application.
     mainClass = 'com.example.repo.interfaces.App'
+    applicationDefaultJvmArgs = [
+        "--enable-native-access=javafx.graphics"
+    ]
 }
 
 tasks.named('test') {
