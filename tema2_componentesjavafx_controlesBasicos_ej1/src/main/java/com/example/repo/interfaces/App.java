@@ -2,12 +2,14 @@ package com.example.repo.interfaces;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -46,8 +48,11 @@ public class App extends Application {
                 error.showAndWait();
             }
         });
+        
+        HBox elementoBoton = new HBox(btnCalcular);
+        elementoBoton.setAlignment(Pos.CENTER);
 
-        VBox raiz = new VBox(10, lblPrecio, txtPrecio, lblDescuento, txtDescuento, btnCalcular);
+        VBox raiz = new VBox(10, lblPrecio, txtPrecio, lblDescuento, txtDescuento, elementoBoton);
         raiz.setPadding(new Insets(20));
 
         stage.setTitle("Calculadora de descuento");

@@ -4,6 +4,7 @@ import java.net.URL;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -108,8 +110,14 @@ public class App extends Application {
 
         // ---------- DISEÑO DE LA VENTANA ----------
         // VBox apila los componentes en vertical, con 10 píxeles entre ellos
-        VBox raiz = new VBox(10, imagen, lblSinImagen, lblUsuario, txtUsuario,
-                lblClave, txtClave, btnEntrar, lblEstado);
+        HBox contenedorImagen = new HBox(imagen);
+        contenedorImagen.setAlignment(Pos.CENTER);
+        
+        HBox contenedorBoton = new HBox(btnEntrar);
+        contenedorBoton.setAlignment(Pos.CENTER);
+        
+        VBox raiz = new VBox(10, contenedorImagen, lblSinImagen, lblUsuario, txtUsuario,
+                lblClave, txtClave, contenedorBoton, lblEstado);
         raiz.setPadding(new Insets(20));  // margen interior de 20 píxeles
 
         // Stage = ventana, Scene = su contenido
