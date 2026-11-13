@@ -51,7 +51,7 @@ public class Ejercicio3ConversorMonedas extends Application {
                 if(opcionElegida.equals("Dólares($)")){
                     lbConversion.setText(String.format("%.2f", cantidad * DOLARES) + " $");
                 // Libras
-                } else if(opcionElegida.equals("Libras(£)")){
+                } else if(opcionElegida.equals("Libras (£)")){
                     lbConversion.setText(String.format("%.2f", cantidad * LIBRAS) + " £");
                 // Yenes
                 } else {
