@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  * Contiene una imagen, un campo de usuario, un campo de contraseña y un botón.
  * Informa si se acierta y bloquea el acceso tras varios fallos.
  */
-public class App extends Application {
+public class Ejercicio2 extends Application {
 
     // Credenciales válidas (en una app real nunca irían escritas en el código)
     static final String USUARIO_CORRECTO = "admin";
@@ -43,7 +43,7 @@ public class App extends Application {
         Label lblSinImagen = new Label();
 
         // Busca logo.png dentro de src/main/resources (devuelve null si no existe)
-        URL url = App.class.getResource("/logo.png");
+        URL url = Ejercicio2.class.getResource("/logo.png");
         if (url != null) {
             imagen.setImage(new Image(url.toExternalForm()));
             imagen.setFitWidth(100);          // ancho máximo de 100 píxeles

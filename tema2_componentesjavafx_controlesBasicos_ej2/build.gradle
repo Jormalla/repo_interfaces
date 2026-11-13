@@ -40,7 +40,7 @@ javafx {
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.example.repo.interfaces.App'
+    mainClass = 'com.example.repo.interfaces.LanzadorEjemplosFx'
     applicationDefaultJvmArgs = [
         "--enable-native-access=javafx.graphics"
     ]

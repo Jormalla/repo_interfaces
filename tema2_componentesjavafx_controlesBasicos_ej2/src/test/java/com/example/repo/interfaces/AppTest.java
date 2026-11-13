@@ -17,18 +17,18 @@ class AppTest {
     // Usuario y contraseña correctos: debe dar acceso
     @Test
     void credencialesCorrectasDanAcceso() {
-        assertTrue(App.credencialesValidas("admin", "1234"));
+        assertTrue(Ejercicio2.credencialesValidas("admin", "1234"));
     }
 
     // Usuario correcto pero contraseña equivocada: no debe dar acceso
     @Test
     void claveIncorrectaNoDaAcceso() {
-        assertFalse(App.credencialesValidas("admin", "0000"));
+        assertFalse(Ejercicio2.credencialesValidas("admin", "0000"));
     }
 
     // Contraseña correcta pero usuario equivocado: no debe dar acceso
     @Test
     void usuarioIncorrectoNoDaAcceso() {
-        assertFalse(App.credencialesValidas("pepe", "1234"));
+        assertFalse(Ejercicio2.credencialesValidas("pepe", "1234"));
     }
 }
