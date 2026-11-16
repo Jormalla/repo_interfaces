@@ -24,12 +24,12 @@ import javafx.stage.Stage;
  */
 public class Ejercicio2 extends Application {
 
-    // Credenciales válidas (en una app real nunca irían escritas en el código)
+    // Credenciales válidas
     static final String USUARIO_CORRECTO = "admin";
     static final String CLAVE_CORRECTA = "1234";
 
     // Número de fallos a partir del cual se bloquea el acceso
-    static final int MAX_FALLOS = 5;
+    static final int MAX_FALLOS = 3;
 
     // Contador de intentos fallidos.
     int fallos = 0;
@@ -37,8 +37,7 @@ public class Ejercicio2 extends Application {
     @Override
     public void start(Stage stage) {
 
-        // ---------- IMAGEN ----------
-        // ImageView es el componente que muestra una imagen en pantalla
+        // IMAGEN 
         ImageView imagen = new ImageView();
         Label lblSinImagen = new Label();
 
@@ -49,45 +48,44 @@ public class Ejercicio2 extends Application {
             imagen.setFitWidth(100);          // ancho máximo de 100 píxeles
             imagen.setPreserveRatio(true);    // mantiene las proporciones
         } else {
-            // Si no hay imagen, avisa con un texto para que el programa no falle
+            // Texto en caso de que no este la imagen
             lblSinImagen.setText("(coloca logo.png en src/main/resources)");
         }
 
-        // ---------- CAMPOS DE TEXTO ----------
+        // CAMPOS DE TEXTO
         Label lblUsuario = new Label("Usuario:");
-        TextField txtUsuario = new TextField();        // texto visible
+        TextField txtUsuario = new TextField();     
 
         Label lblClave = new Label("Contraseña:");
-        PasswordField txtClave = new PasswordField();  // oculta lo que se escribe
+        PasswordField txtClave = new PasswordField(); 
 
-        // ---------- BOTÓN Y MENSAJE DE ESTADO ----------
+        //bOTÓN Y MENSAJE DE ESTADO
         Button btnEntrar = new Button("Entrar");
-        Label lblEstado = new Label();  // aquí se muestran los mensajes al usuario
+        Label lblEstado = new Label(); 
 
-        // ---------- ACCIÓN DEL BOTÓN ----------
-        // Este código se ejecuta cada vez que se pulsa "Entrar"
+        // ACCIÓN DEL BOTÓN
         btnEntrar.setOnAction(e -> {
 
-            // Comprueba las credenciales con el método de más abajo
+            // Comprueba las credenciales
             boolean correcto = credencialesValidas(txtUsuario.getText(), txtClave.getText());
 
             if (correcto) {
-                // CASO 1: acierta
+                // ACIERTA
                 lblEstado.setText("Acceso concedido");
 
                 Alert ok = new Alert(Alert.AlertType.INFORMATION);
                 ok.setTitle("Login");
                 ok.setHeaderText("Bienvenido");
                 ok.setContentText("Has accedido correctamente.");
-                ok.showAndWait();  // muestra el aviso y espera a que se cierre
+                ok.showAndWait(); 
 
-                fallos = 0;  // reinicia el contador
+                fallos = 0;
             } else {
-                // CASO 2: se equivoca
+                // SE EQUIVOCA
                 fallos++;
 
                 if (fallos >= MAX_FALLOS) {
-                    // CASO 2a: llega al máximo de fallos, se bloquea todo
+                    // llega al máximo de fallos, se bloquea todo
                     lblEstado.setText("Demasiados intentos. Acceso bloqueado.");
 
                     // Desactiva los componentes para que no se pueda seguir probando
@@ -108,21 +106,19 @@ public class Ejercicio2 extends Application {
             }
         });
 
-        // ---------- DISEÑO DE LA VENTANA ----------
-        // VBox apila los componentes en vertical, con 10 píxeles entre ellos
+        // DISEÑO DE LA VENTANA
         HBox contenedorImagen = new HBox(imagen);
         contenedorImagen.setAlignment(Pos.CENTER);
         
         HBox contenedorBoton = new HBox(btnEntrar);
         contenedorBoton.setAlignment(Pos.CENTER);
         
-        VBox raiz = new VBox(10, contenedorImagen, lblSinImagen, lblUsuario, txtUsuario,
+        VBox raiz = new VBox(5, contenedorImagen, lblSinImagen, lblUsuario, txtUsuario,
                 lblClave, txtClave, contenedorBoton, lblEstado);
-        raiz.setPadding(new Insets(20));  // margen interior de 20 píxeles
+        raiz.setPadding(new Insets(20)); 
 
-        // Stage = ventana, Scene = su contenido
         stage.setTitle("Login");
-        stage.setScene(new Scene(raiz, 500, 400));
+        stage.setScene(new Scene(raiz, 250, 300));
         stage.show();
     }
 
