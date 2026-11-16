@@ -42,6 +42,7 @@ public class Ejercicio6Dni extends Application {
                     errorDigitos.setTitle("ERROR");
                     errorDigitos.setHeaderText("Datos incorrectos");
                     errorDigitos.setContentText("El dni debe ser tener 8 dígitos");
+                    errorDigitos.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
                     errorDigitos.showAndWait();
                   // DNI VÁLIDO
                 } else {
@@ -56,6 +57,8 @@ public class Ejercicio6Dni extends Application {
                        char letraDni = LETRAS[moduloDni];
                        correcto.setContentText(correcto.getContentText() + "\nDNI: " + dni + "-" + letraDni);
                     }
+                    // Cambio el color a un degradado de la alerta
+                    correcto.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #C9FFC9);");
                     correcto.showAndWait();
                 }
             
@@ -65,6 +68,7 @@ public class Ejercicio6Dni extends Application {
                 errorNumero.setTitle("ERROR");
                 errorNumero.setHeaderText("Datos incorrectos o incompletos");
                 errorNumero.setContentText("El dni debe ser numérico. No introduzcas letras.");
+                errorNumero.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
                 errorNumero.showAndWait();
             }
         });
