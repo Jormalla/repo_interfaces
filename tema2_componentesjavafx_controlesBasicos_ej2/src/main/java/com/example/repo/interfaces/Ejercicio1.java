@@ -16,14 +16,20 @@ public class Ejercicio1 extends Application {
 
     @Override
     public void start(Stage stage) {
+        // PRECIO
         Label lblPrecio = new Label("Precio:");
         TextField txtPrecio = new TextField();
+        VBox contenedorPrecio = new VBox(5, lblPrecio, txtPrecio);
 
+        // DESCUENTO
         Label lblDescuento = new Label("% de descuento:");
         TextField txtDescuento = new TextField();
+        VBox contenedorDescuento = new VBox(5, lblDescuento, txtDescuento);
 
+        // BOTON
         Button btnCalcular = new Button("Calcular");
-
+        HBox elementoBoton = new HBox(btnCalcular);
+        elementoBoton.setAlignment(Pos.CENTER);
         btnCalcular.setOnAction(e -> {
             try {
                 double precio = Double.parseDouble(txtPrecio.getText().replace(',', '.'));
@@ -49,17 +55,22 @@ public class Ejercicio1 extends Application {
             }
         });
         
-        HBox elementoBoton = new HBox(btnCalcular);
-        elementoBoton.setAlignment(Pos.CENTER);
+        // CONTENEDOR PRINCIPAL
+        VBox contenedorPrincipal = new VBox(10, contenedorPrecio, contenedorDescuento, elementoBoton);
+        contenedorPrincipal.setPadding(new Insets(20));
 
-        VBox raiz = new VBox(10, lblPrecio, txtPrecio, lblDescuento, txtDescuento, elementoBoton);
-        raiz.setPadding(new Insets(20));
-
+        // STAGE
         stage.setTitle("Calculadora de descuento");
-        stage.setScene(new Scene(raiz, 300, 250));
+        stage.setScene(new Scene(contenedorPrincipal, 200, 180));
         stage.show();
     }
 
+    /**
+     * Este método permite calcular el precio final
+     * @param precio precio del producto
+     * @param descuento descuento del producto
+     * @return devuelve el precio final
+     */
     static double calcularPrecioFinal(double precio, double descuento) {
         return precio - precio * descuento / 100;
     }
