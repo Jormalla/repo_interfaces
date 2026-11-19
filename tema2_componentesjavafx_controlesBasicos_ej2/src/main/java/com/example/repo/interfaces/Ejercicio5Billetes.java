@@ -74,6 +74,7 @@ public class Ejercicio5Billetes extends Application {
              error.setTitle("ERROR");
              error.setHeaderText("Datos incorrectos o incompletos");
              error.setContentText("Revisa los datos que introdujistes, las cantidades debe ser un número.");
+             error.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
              error.showAndWait();
         }
       });

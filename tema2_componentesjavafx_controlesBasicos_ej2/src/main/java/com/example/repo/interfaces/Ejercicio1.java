@@ -38,19 +38,23 @@ public class Ejercicio1 extends Application {
                 double precioFinal = calcularPrecioFinal(precio, descuento);
                 double importeDescuento = precio - precioFinal;
 
+                // CAJA DE ALERTA PRECIO FINAL
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Resultado");
                 alerta.setHeaderText("Descuento aplicado");
                 alerta.setContentText(String.format(
                         "Descuento: %.2f € (%.2f%%)%nPrecio final: %.2f €",
                         importeDescuento, descuento, precioFinal));
+                alerta.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #BFE5FF);");
                 alerta.showAndWait();
 
+                // CAJA DE ALERTA ERROR
             } catch (NumberFormatException ex) {
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Error");
                 error.setHeaderText("Datos no válidos");
                 error.setContentText("Introduce números válidos en el precio y el descuento.");
+                error.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
                 error.showAndWait();
             }
         });

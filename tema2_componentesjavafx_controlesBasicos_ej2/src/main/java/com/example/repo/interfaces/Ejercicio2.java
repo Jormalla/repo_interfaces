@@ -77,6 +77,7 @@ public class Ejercicio2 extends Application {
                 ok.setTitle("Login");
                 ok.setHeaderText("Bienvenido");
                 ok.setContentText("Has accedido correctamente.");
+                ok.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #BFE5FF);");
                 ok.showAndWait(); 
 
                 fallos = 0;
@@ -97,6 +98,7 @@ public class Ejercicio2 extends Application {
                     bloqueo.setTitle("Login");
                     bloqueo.setHeaderText("Acceso bloqueado");
                     bloqueo.setContentText("Has fallado " + MAX_FALLOS + " veces.");
+                    bloqueo.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
                     bloqueo.showAndWait();
                 } else {
                     // CASO 2b: aún quedan intentos, se informa de cuántos

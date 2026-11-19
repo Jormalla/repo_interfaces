@@ -63,6 +63,7 @@ public class Ejercicio3ConversorMonedas extends Application {
                 error.setTitle("ERROR");
                 error.setHeaderText("Datos incorrectos o incompletos");
                 error.setContentText("Revisa los datos que introdujistes, la cantidad debe ser un número y debes seleccionar un tipo de moneda");
+                error.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFA1A1);");
                 error.showAndWait();
             }
         });
